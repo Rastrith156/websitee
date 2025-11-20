@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dayananda Sagar University</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://encr ypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYTFV5su2Vu9DI7hzjyQ0PemRJTh8atE7YmQ&s" type="image/x-icon">
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYTFV5su2Vu9DI7hzjyQ0PemRJTh8atE7YmQ&s" type="image/x-icon">
 </head>
+
 <body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-content">
+            <span class="announcement-text">📢 SPONSOR IN THE BENGALURU TECH SUMMIT - 2025</span>
+            <span class="announcement-divider">|</span>
+            <span class="announcement-text">📅 ACADEMIC CALENDAR FOR 2025-26</span>
+            <span class="announcement-divider">|</span>
+            <a href="https://admissions.dsu.edu.in/" target="_blank" rel="noopener noreferrer" class="announcement-link">🎓 CLICK HERE TO APPLY FOR MARCH 2026 EXAM</a>
+        </div>
+    </div>
+
     <!-- Header -->
     <div class="header-assembly">
         <!-- Middle Bar -->
@@ -33,7 +46,7 @@
                     <li class="dropdown">
                         <a href="#university">UNIVERSITY</a>
                         <div class="dropdown-content">
-                            <a href="#">ABOUT DSU</a>
+                            <a href="https://www.dsu.edu.in/about-us/dsu" target="_blank">ABOUT DSU</a>
                             <a href="#">LEADERSHIP</a>
                             <a href="#">ADMINISTRATION</a>
                             <a href="#">UGC INFORMATION</a>
@@ -142,14 +155,6 @@
         </nav>
     </div>
 
-    <!-- Right Vertical Nav -->
-    <div class="side-nav">
-        <a href="#" class="side-nav-item apply-now">APPLY NOW</a>
-        <a href="#" class="side-nav-item contact-icon">📞</a>
-        <a href="#" class="side-nav-item whatsapp-icon">💬</a>
-        <a href="#" class="side-nav-item other-icon">...</a>
-    </div>
-
     <!-- Hero Section with 3D Animation -->
     <section id="home" class="hero-3d">
         <div class="hero-background">
@@ -174,7 +179,10 @@
                     <p>Schools</p>
                 </div>
             </div>
-            <button class="cta-button">Explore DSU</button>
+            <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <button class="hero-cta" onclick="document.getElementById('programs').scrollIntoView({behavior: 'smooth'})">🎓 Explore Programs</button>
+                <button class="hero-cta secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">📞 Contact Us</button>
+            </div>
         </div>
     </section>
 
@@ -183,7 +191,8 @@
         <div class="about-container">
             <div class="about-content">
                 <h2>About Dayananda Sagar University</h2>
-                <p>Dayananda Sagar Institutions, established in 1960, has grown into one of India's leading educational institutions. With over five decades of experience in academic excellence, the institution is committed to advancing knowledge and educating students in a way that makes them globally competitive. DSU has become a preferred choice for students seeking quality education combined with industry-ready skills.</p>
+                <p>Dayananda Sagar Institutions, established in 1960, has grown into one of India's leading educational institutions. With over five decades of experience in academic excellence, the institution is committed to advancing knowledge and educating
+                    students in a way that makes them globally competitive. DSU has become a preferred choice for students seeking quality education combined with industry-ready skills.</p>
                 <div class="about-grid">
                     <div class="about-card glass-effect">
                         <div class="card-icon">🎓</div>
@@ -281,7 +290,8 @@
             <div class="admissions-content">
                 <div class="admissions-info">
                     <h3>Join Dayananda Sagar University</h3>
-                    <p>We welcome applications from qualified students worldwide. Our holistic admissions process considers academic achievements, test scores, and personal qualities. DSU offers opportunities through multiple admission channels including DSAT, PGCET, CET, and direct admissions.</p>
+                    <p>We welcome applications from qualified students worldwide. Our holistic admissions process considers academic achievements, test scores, and personal qualities. DSU offers opportunities through multiple admission channels including
+                        DSAT, PGCET, CET, and direct admissions.</p>
                     <div class="requirements-box">
                         <h4>Admission Requirements:</h4>
                         <ul class="requirements-list">
@@ -294,9 +304,7 @@
                     </div>
                     <div style="margin-top: 20px; padding: 15px; background: #E8F4F8; border-radius: 8px;">
                         <p><strong>Entrance Exams & Codes:</strong></p>
-                        <p>🎯 CET Code (B.Tech): E240 | 🎯 Comed-K Code: E182<br>
-                        🎯 PGCET (M.Tech): T970 | 🎯 PGCET (MBA): B365MB<br>
-                        🎯 PGCET (MCA): C520MC</p>
+                        <p>🎯 CET Code (B.Tech): E240 | 🎯 Comed-K Code: E182<br> 🎯 PGCET (M.Tech): T970 | 🎯 PGCET (MBA): B365MB<br> 🎯 PGCET (MCA): C520MC</p>
                     </div>
                 </div>
                 <div class="admissions-form-section">
@@ -395,7 +403,7 @@
                     <a href="https://www.youtube.com/watch?v=crCo6yNxsDI" target="_blank" class="tour-link">Watch Video →</a>
                 </div>
                 <div class="tour-card">
-                    <div class="tour-icon">�</div>
+                    <div class="tour-icon"> </div>
                     <h3>E-Learning Portal</h3>
                     <p>Access Moodle platform for online learning resources</p>
                     <a href="http://moodle.dsu.edu.in/" target="_blank" class="tour-link">Visit Moodle →</a>
@@ -425,6 +433,109 @@
                     <h3 data-target="100">0</h3>
                     <p>Countries Represented</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-advanced">
+        <div class="container">
+            <h2>Get In Touch With DSU</h2>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h3>🏢 Main Campus</h3>
+                    <p><strong>Location:</strong> Devarakaggalahalli, Harohalli, Kanakapura Road, Bengaluru South – 562 112</p>
+                    <p><strong>Phone:</strong> 080 46461800 / 080 49092800</p>
+                    <p><strong>Email:</strong> admissions@dsu.edu.in</p>
+                    <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
+                </div>
+                <div class="contact-box">
+                    <h3>🏙️ City Innovation Campus</h3>
+                    <p><strong>Location:</strong> Kudlu Gate, Hosur Road, Bengaluru – 560 114</p>
+                    <p><strong>Phone:</strong> 080 49092800 / 080 46461800</p>
+                    <p><strong>Email:</strong> enquiry@dsu.edu.in</p>
+                    <p><strong>Administrative Office:</strong> Gate 2, 6th Floor, Kumaraswamy Layout</p>
+                </div>
+                <div class="contact-box">
+                    <h3>🌍 International Admissions</h3>
+                    <p><strong>Phone:</strong> +91 9606022149 / +91 9606022150 / +91 9606022152</p>
+                    <p><strong>Email:</strong> international-admissions@dsu.edu.in</p>
+                    <p><strong>NRI Admissions:</strong> Dedicated support for international students</p>
+                </div>
+                <div class="contact-box">
+                    <h3>📞 Regional Offices</h3>
+                    <p><strong>East Region:</strong> 8240216553</p>
+                    <p><strong>West Region:</strong> 9741488001</p>
+                    <p><strong>North Region:</strong> 7488983636</p>
+                    <p><strong>South Region:</strong> 9962835358</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <h3>Send us a Message</h3>
+                <form>
+                    <input type="text" placeholder="Your Full Name" required>
+                    <input type="email" placeholder="Your Email Address" required>
+                    <input type="text" placeholder="Subject/Inquiry Type" required>
+                    <textarea placeholder="Your Message / Questions" rows="6" required></textarea>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-badge under-grad-badge">
+                    <span class="badge-letter">C</span>
+                    <span class="badge-text">UNDERGRADUATE</span>
+                </div>
+            </div>
+            <div class="programs-grid">
+                <div class="program-btn" data-program="Computer Science & Engineering">
+                    <div class="btn-icon">🎓</div><span>Computer Science & Engineering</span></div>
+                <div class="program-btn" data-program="Computer Science & Engineering (AI & ML)">
+                    <div class="btn-icon">🤖</div><span>Computer Science & Engineering (AI & ML)</span></div>
+                <div class="program-btn" data-program="Computer Science & Engineering (AI & Data Science)">
+                    <div class="btn-icon">📊</div><span>Computer Science & Engineering (AI & Data Science)</span></div>
+                <div class="program-btn" data-program="AI & Robotics">
+                    <div class="btn-icon">🦾</div><span>AI & Robotics</span></div>
+                <div class="program-btn" data-program="Computer Science & Engineering (Data Science)">
+                    <div class="btn-icon">💾</div><span>Computer Science & Engineering (Data Science)</span></div>
+                <div class="program-btn" data-program="Computer Science & Engineering (Cyber Security)">
+                    <div class="btn-icon">🔐</div><span>Computer Science & Engineering (Cyber Security)</span></div>
+                <div class="program-btn" data-program="Electronics & Communication Engineering">
+                    <div class="btn-icon">⚡</div><span>Electronics & Communication Engineering</span></div>
+                <div class="program-btn" data-program="Mechanical Engineering">
+                    <div class="btn-icon">⚙️</div><span>Mechanical Engineering</span></div>
+                <div class="program-btn" data-program="Computer Science & Technology">
+                    <div class="btn-icon">💻</div><span>Computer Science & Technology</span></div>
+                <div class="program-btn" data-program="Aerospace Engineering">
+                    <div class="btn-icon">✈️</div><span>Aerospace Engineering</span></div>
+                <div class="program-btn" data-program="Computer Science and Medical Engineering">
+                    <div class="btn-icon">🏥</div><span>Computer Science and Medical Engineering</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Postgraduate Programs Section -->
+    <section class="programs-section postgraduate-section">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-badge post-grad-badge">
+                    <span class="badge-letter">C</span>
+                    <span class="badge-text">POSTGRADUATE</span>
+                </div>
+            </div>
+            <div class="programs-grid postgraduate-grid">
+                <div class="program-btn" data-program="Computer Science & Engineering">
+                    <div class="btn-icon">🎓</div><span>Computer Science & Engineering</span></div>
+                <div class="program-btn" data-program="Embedded Systems">
+                    <div class="btn-icon">🔌</div><span>Embedded Systems</span></div>
+                <div class="program-btn" data-program="Design Engineering">
+                    <div class="btn-icon">🎨</div><span>Design Engineering</span></div>
             </div>
         </div>
     </section>
@@ -527,408 +638,408 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-container">
-        <div class="container">
-            <a href="#">&#127968; Home</a>
-            <span class="breadcrumb-separator">&raquo;</span>
-            <span class="breadcrumb-current">ADMISSIONS</span>
-        </div>
+<div class="breadcrumb-container">
+    <div class="container">
+        <a href="#">&#127968; Home</a>
+        <span class="breadcrumb-separator">&raquo;</span>
+        <span class="breadcrumb-current">ADMISSIONS</span>
     </div>
+</div>
 
-    <main class="page-content container">
-        <h1 class="page-title">ADMISSIONS</h1>
-    </main>
+<main class="page-content container">
+    <h1 class="page-title">ADMISSIONS</h1>
+</main>
 
-    <!-- Side Navigation Bar -->
-    <div class="side-nav">
-        <a href="https://admissions.dsu.edu.in/" target="_blank" rel="noopener noreferrer" class="side-nav-item apply-now">APPLY NOW</a>
-        <a href="#" class="side-nav-item phone-icon"></a>
-        <a href="#" class="side-nav-item contact-icon">📞</a>
-        <a href="#" class="side-nav-item whatsapp-icon">💬</a>
-        <a href="#" class="side-nav-item other-icon">...</a>
+<!-- Side Navigation Bar -->
+<div class="side-nav">
+    <a href="https://admissions.dsu.edu.in/" target="_blank" rel="noopener noreferrer" class="side-nav-item apply-now">APPLY NOW</a>
+    <a href="#" class="side-nav-item phone-icon"></a>
+    <a href="#" class="side-nav-item contact-icon">📞</a>
+    <a href="#" class="side-nav-item whatsapp-icon">💬</a>
+    <a href="#" class="side-nav-item other-icon">...</a>
+</div>
+
+<!-- Hero Section with 3D Animation -->
+<section id="home" class="hero-3d">
+    <div class="hero-background">
+        <div class="cube"></div>
+        <div class="sphere"></div>
+        <div class="pyramid"></div>
     </div>
-
-    <!-- Hero Section with 3D Animation -->
-    <section id="home" class="hero-3d">
-        <div class="hero-background">
-            <div class="cube"></div>
-            <div class="sphere"></div>
-            <div class="pyramid"></div>
-        </div>
-        <div class="hero-content">
-            <img src="https://dsu.edu.in/images/logo_white.png" alt="Dayananda Sagar University Logo" class="hero-logo">
-            <h2 class="hero-title">Dayananda Sagar University</h2>
-            <div class="hero-stats">
-                <div class="stat">
-                    <h3>50+</h3>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat">
-                    <h3>8000+</h3>
-                    <p>Students</p>
-                </div>
-                <div class="stat">
-                    <h3>9</h3>
-                    <p>Schools</p>
-                </div>
+    <div class="hero-content">
+        <img src="https://dsu.edu.in/images/logo_white.png" alt="Dayananda Sagar University Logo" class="hero-logo">
+        <h2 class="hero-title">Dayananda Sagar University</h2>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Years of Excellence</p>
             </div>
-            <button class="cta-button">Explore DSU</button>
+            <div class="stat">
+                <h3>8000+</h3>
+                <p>Students</p>
+            </div>
+            <div class="stat">
+                <h3>9</h3>
+                <p>Schools</p>
+            </div>
         </div>
-    </section>
+        <button class="cta-button">Explore DSU</button>
+    </div>
+</section>
 <!-- About Section with Parallax -->
-    <section id="about" class="about-advanced">
-        <div class="about-container">
-            <div class="about-content">
-                <h2>About Dayananda Sagar University</h2>
-                <p>Dayananda Sagar Institutions, established in 1960, has grown into one of India's leading educational institutions. With over five decades of experience in academic excellence, the institution is committed to advancing knowledge and educating students in a way that makes them globally competitive. DSU has become a preferred choice for students seeking quality education combined with industry-ready skills.</p>
-                <div class="about-grid">
-                    <div class="about-card glass-effect">
-                        <div class="card-icon">🎓</div>
-                        <h3>50+ Years Legacy</h3>
-                        <p>Established in 1960, trusted by thousands of alumni worldwide</p>
-                    </div>
-                    <div class="about-card glass-effect">
-                        <div class="card-icon">🔬</div>
-                        <h3>Research & Innovation</h3>
-                        <p>Active UG Research Forum and AIC-DSU Innovation Foundation</p>
-                    </div>
-                    <div class="about-card glass-effect">
-                        <div class="card-icon">🌍</div>
-                        <h3>Global Presence</h3>
-                        <p>Students from 100+ countries | International collaborations</p>
-                    </div>
-                    <div class="about-card glass-effect">
-                        <div class="card-icon">💼</div>
-                        <h3>Strong Placements</h3>
-                        <p>Partnerships with top companies | Excellent placement record</p>
-                    </div>
+<section id="about" class="about-advanced">
+    <div class="about-container">
+        <div class="about-content">
+            <h2>About Dayananda Sagar University</h2>
+            <p>Dayananda Sagar Institutions, established in 1960, has grown into one of India's leading educational institutions. With over five decades of experience in academic excellence, the institution is committed to advancing knowledge and educating
+                students in a way that makes them globally competitive. DSU has become a preferred choice for students seeking quality education combined with industry-ready skills.</p>
+            <div class="about-grid">
+                <div class="about-card glass-effect">
+                    <div class="card-icon">🎓</div>
+                    <h3>50+ Years Legacy</h3>
+                    <p>Established in 1960, trusted by thousands of alumni worldwide</p>
+                </div>
+                <div class="about-card glass-effect">
+                    <div class="card-icon">🔬</div>
+                    <h3>Research & Innovation</h3>
+                    <p>Active UG Research Forum and AIC-DSU Innovation Foundation</p>
+                </div>
+                <div class="about-card glass-effect">
+                    <div class="card-icon">🌍</div>
+                    <h3>Global Presence</h3>
+                    <p>Students from 100+ countries | International collaborations</p>
+                </div>
+                <div class="about-card glass-effect">
+                    <div class="card-icon">💼</div>
+                    <h3>Strong Placements</h3>
+                    <p>Partnerships with top companies | Excellent placement record</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Academics Section with 3D Cards -->
-    <section id="academics" class="academics-advanced">
-        <div class="container">
-            <h2>Academic Schools</h2>
-            <p class="section-subtitle">Explore Our 9 Prestigious Schools & Diverse Programs</p>
-            <div class="academics-grid">
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Engineering</h3>
-                        <p>B.Tech in CSE, ECE, Mechanical, Civil, Aerospace | M.Tech Programs</p>
-                    </div>
+<!-- Academics Section with 3D Cards -->
+<section id="academics" class="academics-advanced">
+    <div class="container">
+        <h2>Academic Schools</h2>
+        <p class="section-subtitle">Explore Our 9 Prestigious Schools & Diverse Programs</p>
+        <div class="academics-grid">
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Engineering</h3>
+                    <p>B.Tech in CSE, ECE, Mechanical, Civil, Aerospace | M.Tech Programs</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Computer Applications</h3>
-                        <p>BCA, MCA | B.Sc & M.Sc Data Science | Cloud Computing & IoT</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Computer Applications</h3>
+                    <p>BCA, MCA | B.Sc & M.Sc Data Science | Cloud Computing & IoT</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Commerce & Management</h3>
-                        <p>BBA, B.Com, MBA, Executive MBA | Reverse Engineer Pedagogy in AI/ML</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Commerce & Management</h3>
+                    <p>BBA, B.Com, MBA, Executive MBA | Reverse Engineer Pedagogy in AI/ML</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Health Sciences</h3>
-                        <p>B.Pharm, M.Pharma, Pharma.D | BPT, MPT | B.Sc & M.Sc Nursing | Allied Health</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Health Sciences</h3>
+                    <p>B.Pharm, M.Pharma, Pharma.D | BPT, MPT | B.Sc & M.Sc Nursing | Allied Health</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Basic & Applied Sciences</h3>
-                        <p>B.Sc & M.Sc in Physics, Chemistry, Mathematics, Applied Sciences</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Basic & Applied Sciences</h3>
+                    <p>B.Sc & M.Sc in Physics, Chemistry, Mathematics, Applied Sciences</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Arts, Design & Humanities</h3>
-                        <p>BA in Journalism, B.Design, School of Law (3-Year LL.B, LL.M)</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Arts, Design & Humanities</h3>
+                    <p>BA in Journalism, B.Design, School of Law (3-Year LL.B, LL.M)</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>School of Design & Digital Transmedia</h3>
-                        <p>Cutting-edge programs in Digital Design, Animation & Media Production</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>School of Design & Digital Transmedia</h3>
+                    <p>Cutting-edge programs in Digital Design, Animation & Media Production</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>Executive Education</h3>
-                        <p>Executive MBA, Professional Development, Corporate Training</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>Executive Education</h3>
+                    <p>Executive MBA, Professional Development, Corporate Training</p>
                 </div>
-                <div class="academic-card 3d-card">
-                    <div class="card-front">
-                        <h3>Online Degree Programs</h3>
-                        <p>Flexible learning opportunities through DSU Online</p>
-                    </div>
+            </div>
+            <div class="academic-card 3d-card">
+                <div class="card-front">
+                    <h3>Online Degree Programs</h3>
+                    <p>Flexible learning opportunities through DSU Online</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Admissions Section with Interactive Elements -->
-    <section id="admissions" class="admissions-advanced">
-        <div class="container">
-            <h2>Admissions 2025-26</h2>
-            <div class="admissions-content">
-                <div class="admissions-info">
-                    <h3>Join Dayananda Sagar University</h3>
-                    <p>We welcome applications from qualified students worldwide. Our holistic admissions process considers academic achievements, test scores, and personal qualities. DSU offers opportunities through multiple admission channels including DSAT, PGCET, CET, and direct admissions.</p>
-                    <div class="requirements-box">
-                        <h4>Admission Requirements:</h4>
-                        <ul class="requirements-list">
-                            <li>✓ High school diploma or equivalent</li>
-                            <li>✓ Standardized test scores (SAT/DSAT/PGCET/CET)</li>
-                            <li>✓ Minimum required GPA/Merit</li>
-                            <li>✓ Application essay</li>
-                            <li>✓ Letters of recommendation</li>
-                        </ul>
-                    </div>
-                    <div style="margin-top: 20px; padding: 15px; background: #E8F4F8; border-radius: 8px;">
-                        <p><strong>Entrance Exams & Codes:</strong></p>
-                        <p>🎯 CET Code (B.Tech): E240 | 🎯 Comed-K Code: E182<br>
-                        🎯 PGCET (M.Tech): T970 | 🎯 PGCET (MBA): B365MB<br>
-                        🎯 PGCET (MCA): C520MC</p>
-                    </div>
+<!-- Admissions Section with Interactive Elements -->
+<section id="admissions" class="admissions-advanced">
+    <div class="container">
+        <h2>Admissions 2025-26</h2>
+        <div class="admissions-content">
+            <div class="admissions-info">
+                <h3>Join Dayananda Sagar University</h3>
+                <p>We welcome applications from qualified students worldwide. Our holistic admissions process considers academic achievements, test scores, and personal qualities. DSU offers opportunities through multiple admission channels including DSAT,
+                    PGCET, CET, and direct admissions.</p>
+                <div class="requirements-box">
+                    <h4>Admission Requirements:</h4>
+                    <ul class="requirements-list">
+                        <li>✓ High school diploma or equivalent</li>
+                        <li>✓ Standardized test scores (SAT/DSAT/PGCET/CET)</li>
+                        <li>✓ Minimum required GPA/Merit</li>
+                        <li>✓ Application essay</li>
+                        <li>✓ Letters of recommendation</li>
+                    </ul>
                 </div>
-                <div class="admissions-form-section">
-                    <h3>Quick Inquiry</h3>
-                    <form class="admissions-form">
-                        <input type="text" placeholder="Full Name" required>
-                        <input type="email" placeholder="Email Address" required>
-                        <select required>
+                <div style="margin-top: 20px; padding: 15px; background: #E8F4F8; border-radius: 8px;">
+                    <p><strong>Entrance Exams & Codes:</strong></p>
+                    <p>🎯 CET Code (B.Tech): E240 | 🎯 Comed-K Code: E182<br> 🎯 PGCET (M.Tech): T970 | 🎯 PGCET (MBA): B365MB<br> 🎯 PGCET (MCA): C520MC</p>
+                </div>
+            </div>
+            <div class="admissions-form-section">
+                <h3>Quick Inquiry</h3>
+                <form class="admissions-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <select required>
                             <option value="">Select Program</option>
                             <option value="ug">Undergraduate</option>
                             <option value="pg">Postgraduate</option>
                             <option value="phd">PhD</option>
                             <option value="online">Online Degree</option>
                         </select>
-                        <input type="tel" placeholder="Phone Number" required>
-                        <textarea placeholder="Message" rows="4"></textarea>
-                        <button type="submit" class="submit-btn">Send Inquiry</button>
-                    </form>
-                </div>
-            </div>
-            <div class="admissions-contact">
-                <h4>📞 Contact Admissions Office</h4>
-                <p><strong>Main Campus:</strong> 080 46461800 / 080 49092800</p>
-                <p><strong>Toll Free:</strong> +91 6366885507</p>
-                <p><strong>NRI/International:</strong> +91 9606022149 / +91 9606022150</p>
-                <p><strong>Email:</strong> admissions@dsu.edu.in | dsat@dsu.edu.in</p>
-                <p><strong>WhatsApp:</strong> +91 6366885507</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Facilities Section -->
-    <section id="facilities" class="facilities-advanced">
-        <div class="container">
-            <h2>Campus Facilities</h2>
-            <div class="facilities-grid">
-                <div class="facility-item">
-                    <div class="facility-icon">🏢</div>
-                    <h3>Modern Campus</h3>
-                    <p>Main Campus in Harohalli | City Innovation Campus in Kumaraswamy Layout | State-of-the-art buildings</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🏫</div>
-                    <h3>Comprehensive Library</h3>
-                    <p>100,000+ books | Digital resources | E-Learning (Moodle) Platform</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🏋️</div>
-                    <h3>Sports & Recreation</h3>
-                    <p>Modern sports complex | Cricket field | Gymnasium | Indoor games</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🛏️</div>
-                    <h3>Hostel Accommodation</h3>
-                    <p>Comfortable residential facilities | 24/7 security | All modern amenities</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🍽️</div>
-                    <h3>Dining & Nutrition</h3>
-                    <p>Multi-cuisine cafeteria | Nutritious meals | Hygiene standards</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">💻</div>
-                    <h3>Advanced Labs</h3>
-                    <p>AI & ML Labs | Cloud Computing | IoT Labs | Big Data Analytics</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🔬</div>
-                    <h3>Research Centers</h3>
-                    <p>UG Research Forum | AIC-DSU Innovation Foundation | DERBI Incubation</p>
-                </div>
-                <div class="facility-item">
-                    <div class="facility-icon">🎓</div>
-                    <h3>Academic Support</h3>
-                    <p>Counseling services | Career center | Placement assistance</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Virtual Tour Section -->
-    <section class="virtual-tour">
-        <div class="container">
-            <h2>Experience DSU Campus</h2>
-            <div class="tour-options">
-                <div class="tour-card">
-                    <div class="tour-icon">360°</div>
-                    <h3>360° Virtual Tour</h3>
-                    <p>Explore our Main Campus in Harohalli with interactive virtual tour</p>
-                    <a href="https://dsu.edu.in/virtual-tour/" target="_blank" class="tour-link">Take Virtual Tour →</a>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-icon">🎥</div>
-                    <h3>New Campus Video</h3>
-                    <p>Watch our City Innovation Campus tour and facilities</p>
-                    <a href="https://www.youtube.com/watch?v=crCo6yNxsDI" target="_blank" class="tour-link">Watch Video →</a>
-                </div>
-                <div class="tour-card">
-                    <div class="tour-icon">�</div>
-                    <h3>E-Learning Portal</h3>
-                    <p>Access Moodle platform for online learning resources</p>
-                    <a href="http://moodle.dsu.edu.in/" target="_blank" class="tour-link">Visit Moodle →</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="statistics">
-        <div class="container">
-            <h2>DSU by Numbers</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3 data-target="50">0</h3>
-                    <p>Years of Excellence</p>
-                </div>
-                <div class="stat-card">
-                    <h3 data-target="8000">0</h3>
-                    <p>Active Students</p>
-                </div>
-                <div class="stat-card">
-                    <h3 data-target="9">0</h3>
-                    <p>Academic Schools</p>
-                </div>
-                <div class="stat-card">
-                    <h3 data-target="100">0</h3>
-                    <p>Countries Represented</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-advanced">
-        <div class="container">
-            <h2>Get In Touch With DSU</h2>
-            <div class="contact-grid">
-                <div class="contact-box">
-                    <h3>🏢 Main Campus</h3>
-                    <p><strong>Location:</strong> Devarakaggalahalli, Harohalli, Kanakapura Road, Bengaluru South – 562 112</p>
-                    <p><strong>Phone:</strong> 080 46461800 / 080 49092800</p>
-                    <p><strong>Email:</strong> admissions@dsu.edu.in</p>
-                    <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
-                </div>
-                <div class="contact-box">
-                    <h3>🏙️ City Innovation Campus</h3>
-                    <p><strong>Location:</strong> Kudlu Gate, Hosur Road, Bengaluru – 560 114</p>
-                    <p><strong>Phone:</strong> 080 49092800 / 080 46461800</p>
-                    <p><strong>Email:</strong> enquiry@dsu.edu.in</p>
-                    <p><strong>Administrative Office:</strong> Gate 2, 6th Floor, Kumaraswamy Layout</p>
-                </div>
-                <div class="contact-box">
-                    <h3>🌍 International Admissions</h3>
-                    <p><strong>Phone:</strong> +91 9606022149 / +91 9606022150 / +91 9606022152</p>
-                    <p><strong>Email:</strong> international-admissions@dsu.edu.in</p>
-                    <p><strong>NRI Admissions:</strong> Dedicated support for international students</p>
-                </div>
-                <div class="contact-box">
-                    <h3>📞 Regional Offices</h3>
-                    <p><strong>East Region:</strong> 8240216553</p>
-                    <p><strong>West Region:</strong> 9741488001</p>
-                    <p><strong>North Region:</strong> 7488983636</p>
-                    <p><strong>South Region:</strong> 9962835358</p>
-                </div>
-            </div>
-            <div class="contact-form">
-                <h3>Send us a Message</h3>
-                <form>
-                    <input type="text" placeholder="Your Full Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="text" placeholder="Subject/Inquiry Type" required>
-                    <textarea placeholder="Your Message / Questions" rows="6" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <textarea placeholder="Message" rows="4"></textarea>
+                    <button type="submit" class="submit-btn">Send Inquiry</button>
                 </form>
             </div>
         </div>
-    </section>
+        <div class="admissions-contact">
+            <h4>📞 Contact Admissions Office</h4>
+            <p><strong>Main Campus:</strong> 080 46461800 / 080 49092800</p>
+            <p><strong>Toll Free:</strong> +91 6366885507</p>
+            <p><strong>NRI/International:</strong> +91 9606022149 / +91 9606022150</p>
+            <p><strong>Email:</strong> admissions@dsu.edu.in | dsat@dsu.edu.in</p>
+            <p><strong>WhatsApp:</strong> +91 6366885507</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="https://dsu.edu.in/images/AC_11082025.pdf" target="_blank">Academic Calendar</a></li>
-                    <li><a href="http://moodle.dsu.edu.in/" target="_blank">E-Learning (Moodle)</a></li>
-                    <li><a href="https://dsu.edu.in/dsu-research" target="_blank">Research</a></li>
-                    <li><a href="https://dsu.edu.in/placements/overview-placements" target="_blank">Placements</a></li>
-                    <li><a href="https://dsu.edu.in/alumni" target="_blank">Alumni</a></li>
-                </ul>
+<!-- Facilities Section -->
+<section id="facilities" class="facilities-advanced">
+    <div class="container">
+        <h2>Campus Facilities</h2>
+        <div class="facilities-grid">
+            <div class="facility-item">
+                <div class="facility-icon">🏢</div>
+                <h3>Modern Campus</h3>
+                <p>Main Campus in Harohalli | City Innovation Campus in Kumaraswamy Layout | State-of-the-art buildings</p>
             </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/Dayanandasagaruniversitybangalore" target="_blank">Facebook</a>
-                    <a href="https://www.instagram.com/dayanandasagaruniversityblr/" target="_blank">Instagram</a>
-                    <a href="https://www.linkedin.com/school/13699751/" target="_blank">LinkedIn</a>
-                    <a href="https://www.youtube.com/channel/UCKdkGHbZ2PWKMM8wBQfXY6A" target="_blank">YouTube</a>
-                    <a href="https://twitter.com/DSUBangalore" target="_blank">Twitter</a>
-                </div>
+            <div class="facility-item">
+                <div class="facility-icon">🏫</div>
+                <h3>Comprehensive Library</h3>
+                <p>100,000+ books | Digital resources | E-Learning (Moodle) Platform</p>
             </div>
-            <div class="footer-section">
-                <h4>Support & Resources</h4>
-                <ul>
-                    <li><a href="#">Admissions Help</a></li>
-                    <li><a href="#">Student Services</a></li>
-                    <li><a href="#">Career Center</a></li>
-                    <li><a href="https://dsu.edu.in/news-events" target="_blank">News & Events</a></li>
-                    <li><a href="https://dsu.edu.in/careers" target="_blank">Careers</a></li>
-                </ul>
+            <div class="facility-item">
+                <div class="facility-icon">🏋️</div>
+                <h3>Sports & Recreation</h3>
+                <p>Modern sports complex | Cricket field | Gymnasium | Indoor games</p>
             </div>
-            <div class="footer-section">
-                <h4>Important Info</h4>
-                <ul>
-                    <li><a href="https://dsu.edu.in/privacy-policy" target="_blank">Privacy Policy</a></li>
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Anti Ragging Policy</a></li>
-                    <li><a href="https://dsu.edu.in/examination" target="_blank">Examination</a></li>
-                </ul>
+            <div class="facility-item">
+                <div class="facility-icon">🛏️</div>
+                <h3>Hostel Accommodation</h3>
+                <p>Comfortable residential facilities | 24/7 security | All modern amenities</p>
+            </div>
+            <div class="facility-item">
+                <div class="facility-icon">🍽️</div>
+                <h3>Dining & Nutrition</h3>
+                <p>Multi-cuisine cafeteria | Nutritious meals | Hygiene standards</p>
+            </div>
+            <div class="facility-item">
+                <div class="facility-icon">💻</div>
+                <h3>Advanced Labs</h3>
+                <p>AI & ML Labs | Cloud Computing | IoT Labs | Big Data Analytics</p>
+            </div>
+            <div class="facility-item">
+                <div class="facility-icon">🔬</div>
+                <h3>Research Centers</h3>
+                <p>UG Research Forum | AIC-DSU Innovation Foundation | DERBI Incubation</p>
+            </div>
+            <div class="facility-item">
+                <div class="facility-icon">🎓</div>
+                <h3>Academic Support</h3>
+                <p>Counseling services | Career center | Placement assistance</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Dayananda Sagar University. All rights reserved.</p>
-            <p><strong>National Anti Ragging Helpline:</strong> 1800-180-5522</p>
-            <p><strong>Established in 1960 | AICTE Approved | UGC Recognized</strong></p>
+    </div>
+</section>
+
+<!-- Virtual Tour Section -->
+<section class="virtual-tour">
+    <div class="container">
+        <h2>Experience DSU Campus</h2>
+        <div class="tour-options">
+            <div class="tour-card">
+                <div class="tour-icon">360°</div>
+                <h3>360° Virtual Tour</h3>
+                <p>Explore our Main Campus in Harohalli with interactive virtual tour</p>
+                <a href="https://dsu.edu.in/virtual-tour/" target="_blank" class="tour-link">Take Virtual Tour →</a>
+            </div>
+            <div class="tour-card">
+                <div class="tour-icon">🎥</div>
+                <h3>New Campus Video</h3>
+                <p>Watch our City Innovation Campus tour and facilities</p>
+                <a href="https://www.youtube.com/watch?v=crCo6yNxsDI" target="_blank" class="tour-link">Watch Video →</a>
+            </div>
+            <div class="tour-card">
+                <div class="tour-icon"> </div>
+                <h3>E-Learning Portal</h3>
+                <p>Access Moodle platform for online learning resources</p>
+                <a href="http://moodle.dsu.edu.in/" target="_blank" class="tour-link">Visit Moodle →</a>
+            </div>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <main class="page-content container">
-        <h1 class="page-title">ADMISSIONS</h1>
-    </main>
+<!-- Statistics Section -->
+<section class="statistics">
+    <div class="container">
+        <h2>DSU by Numbers</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 data-target="50">0</h3>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-target="8000">0</h3>
+                <p>Active Students</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-target="9">0</h3>
+                <p>Academic Schools</p>
+            </div>
+            <div class="stat-card">
+                <h3 data-target="100">0</h3>
+                <p>Countries Represented</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- Contact Section -->
+<section id="contact" class="contact-advanced">
+    <div class="container">
+        <h2>Get In Touch With DSU</h2>
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h3>🏢 Main Campus</h3>
+                <p><strong>Location:</strong> Devarakaggalahalli, Harohalli, Kanakapura Road, Bengaluru South – 562 112</p>
+                <p><strong>Phone:</strong> 080 46461800 / 080 49092800</p>
+                <p><strong>Email:</strong> admissions@dsu.edu.in</p>
+                <p><strong>Hours:</strong> Monday - Friday, 9:00 AM - 5:00 PM</p>
+            </div>
+            <div class="contact-box">
+                <h3>🏙️ City Innovation Campus</h3>
+                <p><strong>Location:</strong> Kudlu Gate, Hosur Road, Bengaluru – 560 114</p>
+                <p><strong>Phone:</strong> 080 49092800 / 080 46461800</p>
+                <p><strong>Email:</strong> enquiry@dsu.edu.in</p>
+                <p><strong>Administrative Office:</strong> Gate 2, 6th Floor, Kumaraswamy Layout</p>
+            </div>
+            <div class="contact-box">
+                <h3>🌍 International Admissions</h3>
+                <p><strong>Phone:</strong> +91 9606022149 / +91 9606022150 / +91 9606022152</p>
+                <p><strong>Email:</strong> international-admissions@dsu.edu.in</p>
+                <p><strong>NRI Admissions:</strong> Dedicated support for international students</p>
+            </div>
+            <div class="contact-box">
+                <h3>📞 Regional Offices</h3>
+                <p><strong>East Region:</strong> 8240216553</p>
+                <p><strong>West Region:</strong> 9741488001</p>
+                <p><strong>North Region:</strong> 7488983636</p>
+                <p><strong>South Region:</strong> 9962835358</p>
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Send us a Message</h3>
+            <form>
+                <input type="text" placeholder="Your Full Name" required>
+                <input type="email" placeholder="Your Email Address" required>
+                <input type="text" placeholder="Subject/Inquiry Type" required>
+                <textarea placeholder="Your Message / Questions" rows="6" required></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="https://dsu.edu.in/images/AC_11082025.pdf" target="_blank">Academic Calendar</a></li>
+                <li><a href="http://moodle.dsu.edu.in/" target="_blank">E-Learning (Moodle)</a></li>
+                <li><a href="https://dsu.edu.in/dsu-research" target="_blank">Research</a></li>
+                <li><a href="https://dsu.edu.in/placements/overview-placements" target="_blank">Placements</a></li>
+                <li><a href="https://dsu.edu.in/alumni" target="_blank">Alumni</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/Dayanandasagaruniversitybangalore" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/dayanandasagaruniversityblr/" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/school/13699751/" target="_blank">LinkedIn</a>
+                <a href="https://www.youtube.com/channel/UCKdkGHbZ2PWKMM8wBQfXY6A" target="_blank">YouTube</a>
+                <a href="https://twitter.com/DSUBangalore" target="_blank">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h4>Support & Resources</h4>
+            <ul>
+                <li><a href="#">Admissions Help</a></li>
+                <li><a href="#">Student Services</a></li>
+                <li><a href="#">Career Center</a></li>
+                <li><a href="https://dsu.edu.in/news-events" target="_blank">News & Events</a></li>
+                <li><a href="https://dsu.edu.in/careers" target="_blank">Careers</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Important Info</h4>
+            <ul>
+                <li><a href="https://dsu.edu.in/privacy-policy" target="_blank">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Anti Ragging Policy</a></li>
+                <li><a href="https://dsu.edu.in/examination" target="_blank">Examination</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Dayananda Sagar University. All rights reserved.</p>
+        <p><strong>National Anti Ragging Helpline:</strong> 1800-180-5522</p>
+        <p><strong>Established in 1960 | AICTE Approved | UGC Recognized</strong></p>
+    </div>
+</footer>
+
+<main class="page-content container">
+    <h1 class="page-title">ADMISSIONS</h1>
+</main>
+
+<script src="script.js"></script>
 </body>
+
 </html>
