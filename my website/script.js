@@ -1,6 +1,6 @@
 // ===== SMOOTH SCROLLING & NAVIGATION =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -27,7 +27,7 @@ if (hamburger) {
 
 // ===== COUNTER ANIMATION FOR STATISTICS =====
 const animateCounters = () => {
-    const statCards = document.querySelectorAll('.stat-card h3');
+    const statCards = document.querySelectorAll('.stat h3');
 
     statCards.forEach(card => {
         const target = parseInt(card.getAttribute('data-target'));
@@ -60,8 +60,8 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
 
-            // Trigger counter animation when statistics section is visible
-            if (entry.target.classList.contains('statistics')) {
+            // Trigger counter animation when hero section is visible
+            if (entry.target.id === 'home' || entry.target.classList.contains('hero-3d')) {
                 animateCounters();
                 observer.unobserve(entry.target);
             }
@@ -79,23 +79,34 @@ const handleFormSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
-    const name = form.querySelector('input[placeholder="Your Full Name"], input[placeholder="Full Name"], input[placeholder="Your Name"]');
-    const email = form.querySelector('input[type="email"], input[placeholder*="Email"]');
+    const name = form.querySelector('input[placeholder="Your Name"]') || form.querySelector('input[placeholder="Full Name"]');
+    const email = form.querySelector('input[placeholder="Your Email"], input[placeholder="Email Address"]');
     const message = form.querySelector('textarea');
 
-    if (!name || !email || !message || !name.value.trim() || !email.value.trim() || !message.value.trim()) {
-        alert('Please fill out all required fields.');
+    if (!name?.value || !email?.value || !message?.value) {
+        alert('Please fill in all fields');
         return;
     }
 
-    const emailValue = email.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
-        alert('Please enter a valid email address.');
+    if (!email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+        alert('Please enter a valid email address');
         return;
     }
 
+    // Show success message
+    const button = form.querySelector('button[type="submit"]');
+    const originalText = button.textContent;
+    button.textContent = '✓ Message Sent!';
+    button.style.background = '#22c55e';
+
+    // Reset form
     form.reset();
-    alert('Your message has been sent. Thank you!');
+
+    // Restore button after 3 seconds
+    setTimeout(() => {
+        button.textContent = originalText;
+        button.style.background = '';
+    }, 3000);
 };
 
 document.querySelectorAll('form').forEach(form => {
@@ -135,11 +146,11 @@ const addHoverEffect = () => {
     const cards = document.querySelectorAll('.academic-card, .facility-item, .contact-box');
 
     cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.transform = 'translateY(-10px) scale(1.02)';
         });
 
-        card.addEventListener('mouseleave', function() {
+        card.addEventListener('mouseleave', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
@@ -150,11 +161,11 @@ addHoverEffect();
 
 // ===== BUTTON ANIMATIONS =====
 document.querySelectorAll('.cta-button, .submit-btn, .tour-link').forEach(button => {
-    button.addEventListener('mousedown', function() {
+    button.addEventListener('mousedown', function () {
         this.style.transform = 'scale(0.95)';
     });
 
-    button.addEventListener('mouseup', function() {
+    button.addEventListener('mouseup', function () {
         this.style.transform = 'scale(1)';
     });
 });
@@ -229,49 +240,24 @@ preloadImages();
 
 console.log('Dayananda Sagar University Website - Loaded Successfully! ✓');
 
-// ===== HEADER & ANNOUNCEMENT HIDE/SHOW ON SCROLL (rAF throttle) =====
+// ===== HEADER HIDE/SHOW ON SCROLL =====
 const header = document.querySelector('.header-assembly');
-const announcement = document.querySelector('.announcement-bar');
-const bodyEl = document.body;
-let lastScroll = 0;
-let scrollTicking = false;
-const hideThreshold = 50;
-const originalBodyPaddingTop = parseInt(getComputedStyle(bodyEl).paddingTop, 10) || 160;
+let lastScrollTop = 0;
 
-function updateHeaderVisibility() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
-
-    // Scrolling down -> hide
-    if (scrollTop > lastScroll && scrollTop > hideThreshold) {
-        if (header) header.classList.add('header-hidden');
-        if (announcement && !announcement.classList.contains('announcement-hidden')) {
-            announcement.classList.add('announcement-hidden');
-            // adjust body padding so content doesn't jump
-            bodyEl.style.paddingTop = Math.max(0, originalBodyPaddingTop - announcement.offsetHeight) + 'px';
-        }
-    } else { // Scrolling up -> show
-        if (header) header.classList.remove('header-hidden');
-        if (announcement && announcement.classList.contains('announcement-hidden')) {
-            announcement.classList.remove('announcement-hidden');
-            bodyEl.style.paddingTop = originalBodyPaddingTop + 'px';
-        }
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 150) { // Scrolling Down and past the header
+        header.classList.add('header-hidden');
+    } else { // Scrolling Up
+        header.classList.remove('header-hidden');
     }
-
-    lastScroll = Math.max(0, scrollTop);
-    scrollTicking = false;
-}
-
-window.addEventListener('scroll', () => {
-    if (!scrollTicking) {
-        window.requestAnimationFrame(updateHeaderVisibility);
-        scrollTicking = true;
-    }
-}, { passive: true });
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+}, false);
 
 // ===== PROGRAMS PAGE INTERACTIVITY =====
 document.querySelectorAll('.program-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        const programName = this.getAttribute('data-program');
+    btn.addEventListener('click', function () {
+        const programName = this.getAttribute('data-program') || this.querySelector('span').textContent;
         showProgramNotification(programName);
     });
     btn.addEventListener('keypress', (e) => {
@@ -317,3 +303,137 @@ programToastStyle.innerHTML = `
     }
 `;
 document.head.appendChild(programToastStyle);
+
+// ===== CHATBOT WIDGET LOGIC =====
+document.addEventListener('DOMContentLoaded', function () {
+    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+    const chatWindow = document.getElementById('chat-window');
+    const chatCloseBtn = document.getElementById('chat-close-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatMessages = document.getElementById('chat-messages');
+
+    // Toggle Chat Window
+    chatToggleBtn.addEventListener('click', () => {
+        chatWindow.classList.add('active');
+        chatToggleBtn.style.display = 'none';
+        if (chatMessages.children.length === 0) {
+            // Initial Greeting
+            setTimeout(() => {
+                addBotMessage("Hi there! 👋 I'm the DSU Student Assistant. How can I help you today?");
+                showOptions(['Find a Program', 'Admissions Info', 'Campus Facilities', 'Contact Us']);
+            }, 500);
+        }
+    });
+
+    // Close Chat Window
+    chatCloseBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+        setTimeout(() => {
+            chatToggleBtn.style.display = 'flex';
+        }, 300);
+    });
+
+    // Send Message on Enter
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
+
+    // Send Message on Click
+    chatSendBtn.addEventListener('click', handleUserMessage);
+
+    function handleUserMessage() {
+        const text = chatInput.value.trim();
+        if (text) {
+            addUserMessage(text);
+            chatInput.value = '';
+            processUserMessage(text);
+        }
+    }
+
+    function addUserMessage(text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'message user';
+        msgDiv.textContent = text;
+        chatMessages.appendChild(msgDiv);
+        scrollToBottom();
+    }
+
+    function addBotMessage(text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'message bot';
+        msgDiv.innerHTML = text; // Allow HTML for links
+        chatMessages.appendChild(msgDiv);
+        scrollToBottom();
+    }
+
+    function showOptions(options) {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'chat-options';
+
+        options.forEach(option => {
+            const btn = document.createElement('button');
+            btn.className = 'chat-option-btn';
+            btn.textContent = option;
+            btn.addEventListener('click', () => {
+                addUserMessage(option);
+                processUserMessage(option);
+            });
+            optionsDiv.appendChild(btn);
+        });
+
+        chatMessages.appendChild(optionsDiv);
+        scrollToBottom();
+    }
+
+    function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function processUserMessage(text) {
+        // Simple keyword matching logic
+        const lowerText = text.toLowerCase();
+
+        // Simulate typing delay
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'message bot';
+        typingIndicator.innerHTML = '<span style="animation: blink 1s infinite">.</span><span style="animation: blink 1s infinite 0.2s">.</span><span style="animation: blink 1s infinite 0.4s">.</span>';
+        chatMessages.appendChild(typingIndicator);
+        scrollToBottom();
+
+        setTimeout(() => {
+            typingIndicator.remove();
+
+            if (lowerText.includes('program') || lowerText.includes('course') || lowerText.includes('degree')) {
+                addBotMessage("We offer a wide range of programs! Are you interested in Undergraduate or Postgraduate studies?");
+                showOptions(['Undergraduate', 'Postgraduate', 'PhD Programs']);
+            } else if (lowerText.includes('undergraduate') || lowerText.includes('ug')) {
+                addBotMessage("Great! Our popular UG programs include B.Tech (CSE, AI & ML, Aerospace), BBA, B.Com, and more. You can view them all in the 'Programs' section.");
+                addBotMessage("<a href='#academics' onclick='document.getElementById(\"academics\").scrollIntoView({behavior: \"smooth\"})'>View UG Programs</a>");
+            } else if (lowerText.includes('postgraduate') || lowerText.includes('pg') || lowerText.includes('master')) {
+                addBotMessage("Excellent choice! We offer M.Tech, MBA, MCA, and M.Sc programs. Check out the details below:");
+                addBotMessage("<a href='#academics' onclick='document.getElementById(\"academics\").scrollIntoView({behavior: \"smooth\"})'>View PG Programs</a>");
+            } else if (lowerText.includes('admission') || lowerText.includes('apply') || lowerText.includes('fee')) {
+                addBotMessage("Admissions for 2025-26 are open! You can apply online or visit our campus.");
+                addBotMessage("For fee structure and eligibility, please visit our <a href='https://dsu.edu.in/admission' target='_blank'>Admissions Page</a>.");
+                showOptions(['How to Apply?', 'Entrance Exams', 'Contact Admissions']);
+            } else if (lowerText.includes('facility') || lowerText.includes('campus') || lowerText.includes('hostel') || lowerText.includes('library')) {
+                addBotMessage("Our campus features state-of-the-art facilities including modern labs, a comprehensive library, sports complex, and comfortable hostels.");
+                addBotMessage("<a href='#facilities' onclick='document.getElementById(\"facilities\").scrollIntoView({behavior: \"smooth\"})'>Explore Facilities</a>");
+            } else if (lowerText.includes('contact') || lowerText.includes('phone') || lowerText.includes('email') || lowerText.includes('address')) {
+                addBotMessage("You can reach us at:<br>📞 080 46461800<br>📧 admissions@dsu.edu.in<br>📍 Main Campus: Harohalli, Kanakapura Road");
+                addBotMessage("<a href='#contact' onclick='document.getElementById(\"contact\").scrollIntoView({behavior: \"smooth\"})'>Go to Contact Section</a>");
+            } else if (lowerText.includes('exam') || lowerText.includes('test')) {
+                addBotMessage("We accept scores from CET, COMED-K, PGCET, and our own DSAT. Do you need specific codes?");
+                showOptions(['Yes, show codes', 'No, thanks']);
+            } else if (lowerText.includes('code')) {
+                addBotMessage("Here are the important codes:<br>CET (B.Tech): E240<br>Comed-K: E182<br>PGCET (MBA): B365MB");
+            } else {
+                addBotMessage("I'm not sure I understood that completely. Could you try one of these options?");
+                showOptions(['Find a Program', 'Admissions Info', 'Campus Facilities', 'Contact Us']);
+            }
+        }, 1000);
+    }
+});
