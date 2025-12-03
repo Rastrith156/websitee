@@ -313,6 +313,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const chatSendBtn = document.getElementById('chat-send-btn');
     const chatMessages = document.getElementById('chat-messages');
 
+    if (!chatToggleBtn || !chatWindow || !chatCloseBtn || !chatInput || !chatSendBtn || !chatMessages) {
+        console.warn('Chatbot elements not found');
+        return;
+    }
+
     // Toggle Chat Window
     chatToggleBtn.addEventListener('click', () => {
         chatWindow.classList.add('active');
@@ -353,12 +358,27 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    async function saveChatMessage(message, sender) {
+        try {
+            await fetch('http://localhost:3000/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message, sender })
+            });
+        } catch (error) {
+            console.error('Error saving chat message:', error);
+        }
+    }
+
     function addUserMessage(text) {
         const msgDiv = document.createElement('div');
         msgDiv.className = 'message user';
         msgDiv.textContent = text;
         chatMessages.appendChild(msgDiv);
         scrollToBottom();
+        saveChatMessage(text, 'user');
     }
 
     function addBotMessage(text) {
@@ -367,6 +387,7 @@ document.addEventListener('DOMContentLoaded', function () {
         msgDiv.innerHTML = text; // Allow HTML for links
         chatMessages.appendChild(msgDiv);
         scrollToBottom();
+        saveChatMessage(text, 'bot');
     }
 
     function showOptions(options) {
