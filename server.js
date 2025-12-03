@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -13,7 +13,9 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname))); // Serve static files from current directory
 
 // MongoDB Connection
-mongoose.connect('mongodb://localhost:27017/university_db', {
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/university_db';
+
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
