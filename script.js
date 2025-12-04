@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function saveChatMessage(message, sender) {
         try {
-            await fetch('http://localhost:3000/api/chat', {
+            await fetch('/api/chat', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

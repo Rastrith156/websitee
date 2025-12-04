@@ -56,6 +56,10 @@
     <script>
         document.getElementById('registrationForm').addEventListener('submit', async function (e) {
             e.preventDefault();
+            const btn = document.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
 
             const formData = {
                 fullName: document.getElementById('fullName').value,
@@ -66,7 +70,7 @@
             };
 
             try {
-                const response = await fetch('http://localhost:3000/api/register', {
+                const response = await fetch('/api/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -85,6 +89,9 @@
             } catch (error) {
                 console.error('Error:', error);
                 alert('An error occurred. Please try again later.');
+            } finally {
+                btn.textContent = originalText;
+                btn.disabled = false;
             }
         });
     </script>

@@ -46,6 +46,16 @@ app.post('/api/register', async (req, res) => {
     }
 });
 
+// Get all registrations
+app.get('/api/registrations', async (req, res) => {
+    try {
+        const registrations = await Registration.find().sort({ registrationDate: -1 });
+        res.json(registrations);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching registrations', error: error.message });
+    }
+});
+
 // Chat Schema
 const chatSchema = new mongoose.Schema({
     message: String,
