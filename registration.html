@@ -7,6 +7,112 @@
     <title>DSU Registration</title>
     <link rel="stylesheet" href="registration.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .close-modal {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-modal:hover {
+            color: #ff6b6b;
+        }
+
+        .modal-body {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .preview-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .preview-item strong {
+            color: #00d2ff;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
 </head>
 
 <body>
@@ -53,15 +159,60 @@
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById('registrationForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const btn = document.querySelector('.submit-btn');
-            const originalText = btn.textContent;
-            btn.textContent = 'Submitting...';
-            btn.disabled = true;
 
-            const formData = {
+    <!-- Preview Modal -->
+    <div id="previewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Preview Your Details</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="preview-item">
+                    <strong>Full Name:</strong>
+                    <span id="preview-fullName"></span>
+                </div>
+                <div class="preview-item">
+                    <strong>Email:</strong>
+                    <span id="preview-email"></span>
+                </div>
+                <div class="preview-item">
+                    <strong>Phone:</strong>
+                    <span id="preview-phone"></span>
+                </div>
+                <div class="preview-item">
+                    <strong>Course:</strong>
+                    <span id="preview-course"></span>
+                </div>
+                <div class="preview-item">
+                    <strong>Date of Birth:</strong>
+                    <span id="preview-dob"></span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closePreview()">Edit Details</button>
+                <button class="btn-primary" onclick="confirmSubmit()">Confirm & Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let formDataGlobal = {};
+        const courseNames = {
+            'cse': 'Computer Science & Engineering',
+            'ece': 'Electronics & Communication',
+            'mech': 'Mechanical Engineering',
+            'bca': 'BCA',
+            'mca': 'MCA',
+            'bba': 'BBA',
+            'mba': 'MBA'
+        };
+
+        document.getElementById('registrationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Collect form data
+            formDataGlobal = {
                 fullName: document.getElementById('fullName').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
@@ -69,31 +220,76 @@
                 dob: document.getElementById('dob').value
             };
 
+            // Show preview
+            showPreview();
+        });
+
+        function showPreview() {
+            document.getElementById('preview-fullName').textContent = formDataGlobal.fullName;
+            document.getElementById('preview-email').textContent = formDataGlobal.email;
+            document.getElementById('preview-phone').textContent = formDataGlobal.phone;
+            document.getElementById('preview-course').textContent = courseNames[formDataGlobal.course] || formDataGlobal.course;
+            document.getElementById('preview-dob').textContent = new Date(formDataGlobal.dob).toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('previewModal').style.display = 'flex';
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').style.display = 'none';
+        }
+
+        async function confirmSubmit() {
+            const modal = document.getElementById('previewModal');
+            const confirmBtn = modal.querySelector('.btn-primary');
+            const originalText = confirmBtn.textContent;
+
+            confirmBtn.textContent = 'Submitting...';
+            confirmBtn.disabled = true;
+
             try {
-                const response = await fetch('/api/register', {
+                const isLiveServer = window.location.port === '5500' || window.location.port === '5501';
+                const apiUrl = isLiveServer ? 'http://localhost:3000/api/register' : '/api/register';
+
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(formDataGlobal)
                 });
 
                 const result = await response.json();
 
                 if (response.ok) {
-                    alert('Registration successful! Welcome to DSU.');
-                    this.reset();
+                    alert('✓ Registration successful! Your details have been saved to the database.');
+                    document.getElementById('registrationForm').reset();
+                    closePreview();
                 } else {
                     alert('Registration failed: ' + result.message);
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('An error occurred. Please try again later.');
+                alert('An error occurred. Please check if the server is running on port 3000.');
             } finally {
-                btn.textContent = originalText;
-                btn.disabled = false;
+                confirmBtn.textContent = originalText;
+                confirmBtn.disabled = false;
             }
-        });
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function (event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target === modal) {
+                closePreview();
+            }
+        }
+
+        // Close modal with X button
+        document.querySelector('.close-modal').addEventListener('click', closePreview);
     </script>
 </body>
 

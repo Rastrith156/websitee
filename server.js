@@ -78,6 +78,16 @@ app.post('/api/chat', async (req, res) => {
     }
 });
 
+// Get all chat messages
+app.get('/api/chats', async (req, res) => {
+    try {
+        const chats = await ChatMessage.find().sort({ timestamp: -1 });
+        res.json(chats);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching chats', error: error.message });
+    }
+});
+
 // Serve the main page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));

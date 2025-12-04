@@ -360,7 +360,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function saveChatMessage(message, sender) {
         try {
-            await fetch('/api/chat', {
+            // Check if running on Live Server (port 5500) to redirect to backend port 3000
+            const isLiveServer = window.location.port === '5500' || window.location.port === '5501';
+            const apiUrl = isLiveServer ? 'http://localhost:3000/api/chat' : '/api/chat';
+
+            await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
